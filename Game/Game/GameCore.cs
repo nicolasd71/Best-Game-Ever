@@ -13,10 +13,20 @@ namespace Game
         {
             // Init some other stuff
             window = new RenderWindow(v, t);
+            // Has to be False to allow GetKeyDown to work
             window.SetKeyRepeatEnabled(false);
 
+            // Window events
+            window.Closed += (object sender, System.EventArgs e) =>
+            {
+                window.Close();
+            };
+
+            // Init other core components
             Input.Init(window);
             Renderer.Init(window);
+            
+            // Start the main loop
             Start();
         }
 
@@ -44,8 +54,10 @@ namespace Game
                     // Basic culling, gameobject will be skipped if it is offscreen
                     if (go.Position.X < 0 || go.Position.X > window.Size.X || go.Position.Y < 0 || go.Position.Y > window.Size.Y)
                         go.shouldRender = false;
+                    else
+                        go.shouldRender = true;
 
-                    // If the GO should not be rendered, then it probably shouldn't be anything
+                    // If the GO is not to be rendered, then it probably shouldn't be evaluated as a whole
                     if (!go.shouldRender)
                         continue;
                         
