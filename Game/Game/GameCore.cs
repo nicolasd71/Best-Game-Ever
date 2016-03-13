@@ -22,6 +22,7 @@ namespace Game
         public static void Start()
         {
             // Start some stuff, more init
+            Game.Start();
             Update();
         }
 
@@ -55,6 +56,8 @@ namespace Game
                     // Place the GO in the next rendering queue
                     Renderer.QueueForRender(go);
                 }
+
+                Game.Update();
 
                 // Clear key buffer
                 Input.ClearKeyBuffer();
