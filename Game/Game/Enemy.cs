@@ -7,6 +7,9 @@ namespace Game
     {
         public float health { get; set; }
 
+        private Player player;
+        private float timer = 1f;
+
         public override void Start()
         {
             RectangleShape c = new RectangleShape(new Vector2f(10, 10));
@@ -22,6 +25,26 @@ namespace Game
         {
             Vector2f offset = new Vector2f((float)Math.Sin(Time.time), (float)Math.Cos(Time.time * 2));
             Position += offset;
+
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+            }
+            else
+            {
+                Shoot();
+                timer = 1f;
+            }
+        }
+
+        public void SetPlayer(Player p)
+        {
+            player = p;
+        }
+
+        public void Shoot()
+        {
+
         }
     }
 }
