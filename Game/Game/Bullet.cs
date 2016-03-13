@@ -9,6 +9,7 @@ namespace Game
         public float bulletDamage = 0f;
         public uint bulletSpeed = 175;
         public bool isPlayerOwned = false;
+        public Vector2f velocity;
         public Vector2f startPos;
 
         private bool launch;
@@ -48,12 +49,20 @@ namespace Game
                     
                 }
             }
-            Position += new Vector2f(0, -1 * bulletSpeed * Time.deltaTime);
+            Position += velocity * Time.deltaTime;
         }
 
         public void Launch()
         {
             Position = startPos;
+            if (isPlayerOwned)
+            {
+                velocity = new Vector2f(0, -1 * bulletSpeed);
+            }
+            else
+            {
+                velocity = GameManager.player.Position - Position;
+            }
             launch = true;
         }
     }

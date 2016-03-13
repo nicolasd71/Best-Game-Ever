@@ -39,11 +39,6 @@ namespace Game
             }
         }
 
-        public void SetPlayer(Player p)
-        {
-            player = p;
-        }
-
         public void Shoot()
         {
             Bullet b = new Bullet();

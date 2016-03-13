@@ -19,6 +19,7 @@ namespace Game
         public bool playerFocus;
         public override void Start()
         {
+            GameManager.player = this;
             RectangleShape r = new RectangleShape(new Vector2f(10, 10));
             r.FillColor = Color.Red;
             drawable = r;

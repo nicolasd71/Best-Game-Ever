@@ -64,6 +64,7 @@
     <Compile Include="Core\GameCore.cs" />
     <Compile Include="Core\GameObject.cs" />
     <Compile Include="Core\Input.cs" />
+    <Compile Include="GameManager.cs" />
     <Compile Include="Mathf.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

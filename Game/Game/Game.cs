@@ -12,7 +12,6 @@ namespace Game
             for (int i = 0; i < 5; i++)
             {
                 Enemy e = new Enemy();
-                e.SetPlayer(p);
                 e.Position = new Vector2f(200, 200 + (i * 50));
                 enemies.Add(e);
             }
