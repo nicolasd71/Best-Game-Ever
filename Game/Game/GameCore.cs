@@ -85,5 +85,15 @@ namespace Game
                     gameObjectList.Remove(g);
             }
         }
+
+        public static GameObject[] GetRegisteredGameObjects()
+        {
+            return gameObjectList.ToArray();
+        }
+
+        public static int GetRegisterGameObjectsCount()
+        {
+            return gameObjectList.Count;
+        }
     }
 }
