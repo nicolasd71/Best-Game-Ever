@@ -6,6 +6,7 @@ namespace Game
     public class Enemy : GameObject
     {
         public float health { get; set; }
+        public float enemyDamage { get; set; }
 
         private Player player;
         private float timer = 1f;
@@ -18,7 +19,8 @@ namespace Game
 
             bounds = new BoundingBox(10, 10);
 
-            health = 100f;   
+            health = 100f;
+            enemyDamage = 10f;
         }
 
         public override void Update()
@@ -44,7 +46,11 @@ namespace Game
 
         public void Shoot()
         {
-
+            Bullet b = new Bullet();
+            b.startPos = Position;
+            b.isPlayerOwned = false;
+            b.bulletDamage = enemyDamage;
+            b.Launch();
         }
     }
 }
