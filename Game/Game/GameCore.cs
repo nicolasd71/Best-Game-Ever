@@ -15,8 +15,6 @@ namespace Game
             // Init some other stuff
             window = new RenderWindow(v, t);
 
-            
-
             Renderer.Init(window);
             Start();
         }
@@ -29,30 +27,42 @@ namespace Game
 
         public static void Update()
         {
-            while (window.IsOpen) // Replace true with Game.WindowOpened or something
+            // Main update loop, every engine-related process should be ran from here
+            while (window.IsOpen)
             {
-                // Do loop
                 // Dispatch SFML's window's messages
                 window.DispatchEvents();
                 // Maybe implement targetFps property in order to limit FPS (VSync-like)
+                // todo: targetFPS
 
                 // Run each GO's update method
                 foreach (GameObject go in gameObjectList)
                 {
+                    // Basic culling, gameobject will be skipped if it is offscreen
+                    if (go.Position.X < 0 || go.Position.X > window.Size.X || go.Position.Y < 0 || go.Position.Y > window.Size.Y)
+                        go.shouldRender = false;
+
+                    // If the GO should not be rendered, then it probably shouldn't be anything
+                    if (!go.shouldRender)
+                        continue;
+                        
                     go.Update();
+
+                    // Update GO's bounding box if it has one
+                    if (go.bounds != null)
+                        go.bounds.pos = go.Position;
+
+                    // Place the GO in the next rendering queue
+                    Renderer.QueueForRender(go);
                 }
 
                 // Render everything to screen
-                Render();
-                Time.FinishUpdate(); // Call this only when update loop is finished.
-                
+                Renderer.TickRenderer();
+                // Call this only when update loop is finished.
+                Time.FinishUpdate();
             }
-            // The loop has exited, end the bloody game
-        }
 
-        public static void Render()
-        {
-            Renderer.TickRenderer();
+            // The loop has exited, end the bloody game
         }
     }
 }

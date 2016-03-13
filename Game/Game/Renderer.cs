@@ -33,9 +33,14 @@ namespace Game
             }
             toRender.Clear();
         }
+
+        public static void QueueForRender(RObject o)
+        {
+            toRender.Add(o);
+        }
     }
 
-    class RObject : Transformable
+    abstract class RObject : Transformable
     {
         public int layer;
         public Drawable drawable;
@@ -43,5 +48,11 @@ namespace Game
         {
             layer = l;
         }
+    }
+
+    // No layers, will be drawn on top of everything
+    abstract class RHUD : Transformable
+    {
+        public Drawable drawable;
     }
 }
