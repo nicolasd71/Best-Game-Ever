@@ -11,7 +11,8 @@ namespace Game
         private static GameObject[] goList;
         public static bool Colliding(BoundingBox a, BoundingBox b)
         {
-            return b.pos.X >= a.pos.X + a.w || b.pos.X + b.w <= a.pos.X || b.pos.Y >= a.pos.Y + a.h || b.pos.Y + b.h <= a.pos.Y;
+            bool ret = a.pos.X < b.pos.X + b.w && a.pos.X + a.w > b.pos.X && a.pos.Y < b.pos.Y + b.h && a.h + a.pos.Y > b.pos.Y;
+            return ret;
         }
 
         public static GameObject[] Colliding(BoundingBox a)
@@ -22,6 +23,9 @@ namespace Game
             foreach (GameObject g in goList)
             {
                 if (g.bounds == null)
+                    continue;
+                // Prevent self-colliding, while we're at it
+                if (g.bounds == a)
                     continue;
                 if(Colliding(a, g.bounds))
                     ret.Add(g);

@@ -20,6 +20,7 @@ namespace Game
             drawable = c;
 
             bounds = new BoundingBox(3, 3);
+            drawLayer = 1;
         }
 
         public override void Update()
