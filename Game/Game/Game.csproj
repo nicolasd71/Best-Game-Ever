@@ -73,6 +73,7 @@
     <Compile Include="Core\RObject.cs" />
     <Compile Include="Core\Time.cs" />
     <Compile Include="Core\Renderer.cs" />
+    <Compile Include="Vector2fExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

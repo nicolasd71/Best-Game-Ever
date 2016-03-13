@@ -61,7 +61,7 @@ namespace Game
             }
             else
             {
-                velocity = GameManager.player.Position - Position;
+                velocity = (GameManager.player.Position - Position).Normalize() * bulletSpeed;
             }
             launch = true;
         }
