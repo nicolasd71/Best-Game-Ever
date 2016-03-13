@@ -15,6 +15,7 @@ namespace Game
             // Init some other stuff
             window = new RenderWindow(v, t);
 
+            Input.Init();
             Renderer.Init(window);
             Start();
         }
