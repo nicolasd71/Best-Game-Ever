@@ -46,7 +46,6 @@ namespace Game
                 playerSpeed = PLAYER_BASE_SPEED;
                 playerDamage = PLAYER_BASE_DAMAGE;
                 focusDeduced = false;
-                Debug.WriteLine("");
             }
 
             // Player movement
@@ -60,7 +59,7 @@ namespace Game
                 Position += new Vector2f(1 * playerSpeed * Time.deltaTime, 0);
 
             // Player fire
-            if (Input.GetKeyDown(Keyboard.Key.Space))
+            if (Input.GetKey(Keyboard.Key.Space))
                 Shoot();
 
             Debug.WriteLine(Position);
