@@ -59,7 +59,7 @@ namespace Game
                 Position = new Vector2f(Mathf.Clamp(Position.X + -1 * playerSpeed * Time.deltaTime, 0, GameCore.window.Size.X - bounds.w), Position.Y);
             else if (Input.GetKey(Keyboard.Key.D) && Position.X < GameCore.window.Size.X)
                 Position = new Vector2f(Mathf.Clamp(Position.X + 1 * playerSpeed * Time.deltaTime, 0, GameCore.window.Size.X - bounds.w), Position.Y);
-            Debug.WriteLine(Position);
+
             // Player fire
             if (Input.GetKeyDown(Keyboard.Key.Space))
                 Shoot();
