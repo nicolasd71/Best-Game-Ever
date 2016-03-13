@@ -39,20 +39,4 @@ namespace Game
             toRender.Add(o);
         }
     }
-
-    public abstract class RObject : Transformable
-    {
-        public int layer;
-        public Drawable drawable;
-        public RObject(int l)
-        {
-            layer = l;
-        }
-    }
-
-    // No layers, will be drawn on top of everything
-    abstract class RHUD : Transformable
-    {
-        public Drawable drawable;
-    }
 }
