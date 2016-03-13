@@ -45,7 +45,6 @@ namespace Game
                         e.health -= bulletDamage;
                     }
                     g.shouldRender = false;
-                    Console.WriteLine("Hit an enemy");
                 }
             }
             Position += new Vector2f(0, -1 * bulletSpeed * Time.deltaTime);

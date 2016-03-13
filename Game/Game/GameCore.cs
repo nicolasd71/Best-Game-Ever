@@ -56,8 +56,6 @@ namespace Game
                     // Basic culling, gameobject will be skipped if it is offscreen
                     if (go.Position.X < 0 || go.Position.X > window.Size.X || go.Position.Y < 0 || go.Position.Y > window.Size.Y)
                         go.shouldRender = false;
-                    else
-                        go.shouldRender = true;
 
                     // If the GO is not to be rendered, then it probably shouldn't be evaluated as a whole
                     if (!go.shouldRender && SkipCulledObjectUpdate)
