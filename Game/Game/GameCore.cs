@@ -73,6 +73,7 @@ namespace Game
 
                 // Call this only when update loop is finished.
                 Time.FinishUpdate();
+                System.Threading.Thread.Sleep(10);
             }
 
             // The loop has exited, end the bloody game

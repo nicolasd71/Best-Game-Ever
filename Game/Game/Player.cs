@@ -49,6 +49,8 @@ namespace Game
                 Debug.WriteLine("");
             }
 
+            Vector2f lastPos = Position;
+
             // Player movement
             if (Input.GetKey(Keyboard.Key.Z))
                 Position += new Vector2f(0, -1 * playerSpeed * Time.deltaTime);
@@ -61,17 +63,19 @@ namespace Game
 
             // Player fire
             if (Input.GetKeyDown(Keyboard.Key.Space))
-                Shoot();
+                Shoot((Position - lastPos) / Time.deltaTime);
+                
 
             Debug.WriteLine(Position);
         }
 
-        private void Shoot()
+        private void Shoot(Vector2f inheritVelocity)
         {
             Bullet b = new Bullet();
             b.startPos = Position;
             b.isPlayerOwned = true;
             b.bulletDamage = playerDamage;
+            b.inheritVelocity = inheritVelocity;
             b.Launch();
         }
 
