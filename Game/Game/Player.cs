@@ -10,7 +10,7 @@ namespace Game
     {
         public const uint PLAYER_BASE_SPEED = 125;
         public const float PLAYER_BASE_DAMAGE = 20;
-        public uint playerSpeed = 150;
+        public uint playerSpeed = 125;
         public float playerDamage = 30f;
 
         public uint focusSpeedBonus = 65;
@@ -37,11 +37,14 @@ namespace Game
             else
                 playerFocus = false;
 
-            if (playerFocus && !focusDeduced)
+            if (playerFocus)
             {
-                playerSpeed -= focusSpeedBonus;
-                playerDamage += focusDamageBonus;
-                focusDeduced = true;
+                if (!focusDeduced)
+                {
+                    playerSpeed -= focusSpeedBonus;
+                    playerDamage += focusDamageBonus;
+                    focusDeduced = true;
+                }
             }
             else
             {
