@@ -8,8 +8,6 @@ namespace Game
 {
     static class Renderer
     {
-        static private bool ready = false;
-
         static private RenderWindow window;
         static private List<RObject> toRender;
 
@@ -22,12 +20,13 @@ namespace Game
 
         public static void TickRenderer()
         {
-            if (!ready)
-                return;
+            //window.Clear(Color.Black);
             toRender = toRender.OrderBy((r) => (r.layer)).ToList();
-            window.Clear(Color.Black);
+            
             foreach (RObject rO in toRender)
             {
+                if (rO.drawable == null)
+                    continue;
                 RenderStates rS = new RenderStates(rO.Transform);
                 window.Draw(rO.drawable, rS);
             }
