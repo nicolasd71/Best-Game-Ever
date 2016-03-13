@@ -56,6 +56,9 @@ namespace Game
                     Renderer.QueueForRender(go);
                 }
 
+                // Clear key buffer
+                Input.ClearKeyBuffer();
+
                 // Render everything to screen
                 Renderer.TickRenderer();
                 // Call this only when update loop is finished.
