@@ -10,7 +10,6 @@ namespace Game
         public uint bulletSpeed = 175;
         public bool isPlayerOwned = false;
         public Vector2f startPos;
-        public Vector2f inheritVelocity;
 
         private bool launch;
 
@@ -46,7 +45,7 @@ namespace Game
                     Console.WriteLine("Hit an ennemy");
                 }
             }
-            Position += new Vector2f(0, -1 * bulletSpeed * Time.deltaTime) + (inheritVelocity * Time.deltaTime);
+            Position += new Vector2f(0, -1 * bulletSpeed * Time.deltaTime);
         }
 
         public void Launch()
