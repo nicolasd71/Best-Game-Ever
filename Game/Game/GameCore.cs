@@ -42,10 +42,12 @@ namespace Game
                     go.Update();
                 }
 
+                // Clear key buffer
+                Input.ClearKeyBuffer();
+
                 // Render everything to screen
                 Render();
                 Time.FinishUpdate(); // Call this only when update loop is finished.
-                
             }
             // The loop has exited, end the bloody game
         }
