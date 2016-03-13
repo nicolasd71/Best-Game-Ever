@@ -6,9 +6,11 @@ namespace Game
 {
     public static class GameCore
     {
+        public static bool SkipCulledObjectUpdate = true;
         public static RenderWindow window;
         private static List<GameObject> gameObjectList = new List<GameObject>();
         private static List<GameObject> tempGOList = new List<GameObject>();
+
         public static void Init(VideoMode v, string t)
         {
             // Init some other stuff
@@ -58,7 +60,7 @@ namespace Game
                         go.shouldRender = true;
 
                     // If the GO is not to be rendered, then it probably shouldn't be evaluated as a whole
-                    if (!go.shouldRender)
+                    if (!go.shouldRender && SkipCulledObjectUpdate)
                         continue;
                         
                     go.Update();
