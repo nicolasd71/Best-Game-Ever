@@ -23,6 +23,8 @@ namespace Game
             r.FillColor = Color.Red;
             drawable = r;
 
+            bounds = new BoundingBox(10, 10);
+
             Position = new Vector2f(10, 10);
         }
 
@@ -46,7 +48,6 @@ namespace Game
                 playerSpeed = PLAYER_BASE_SPEED;
                 playerDamage = PLAYER_BASE_DAMAGE;
                 focusDeduced = false;
-                Debug.WriteLine("");
             }
 
             // Player movement
@@ -62,9 +63,6 @@ namespace Game
             // Player fire
             if (Input.GetKeyDown(Keyboard.Key.Space))
                 Shoot();
-                
-
-            Debug.WriteLine(Position);
         }
 
         private void Shoot()

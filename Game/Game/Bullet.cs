@@ -18,6 +18,8 @@ namespace Game
             CircleShape c = new CircleShape(3);
             c.FillColor = Color.Blue;
             drawable = c;
+
+            bounds = new BoundingBox(3, 3);
         }
 
         public override void Update()

@@ -11,6 +11,8 @@ namespace Game
             c.FillColor = Color.Magenta;
             drawable = c;
 
+            bounds = new BoundingBox(10, 10);
+
             health = 100f;   
         }
 
