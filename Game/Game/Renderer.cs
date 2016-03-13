@@ -20,9 +20,9 @@ namespace Game
 
         public static void TickRenderer()
         {
-            //window.Clear(Color.Black);
+            window.Clear(Color.Black);
             toRender = toRender.OrderBy((r) => (r.layer)).ToList();
-            
+
             foreach (RObject rO in toRender)
             {
                 if (rO.drawable == null)
@@ -30,6 +30,7 @@ namespace Game
                 RenderStates rS = new RenderStates(rO.Transform);
                 window.Draw(rO.drawable, rS);
             }
+            window.Display();
             toRender.Clear();
         }
 
@@ -39,7 +40,7 @@ namespace Game
         }
     }
 
-    abstract class RObject : Transformable
+    public abstract class RObject : Transformable
     {
         public int layer;
         public Drawable drawable;

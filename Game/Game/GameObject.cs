@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    abstract class GameObject : RObject
+    public abstract class GameObject : RObject
     {
         private static int curObjectID = 0;
 
@@ -20,6 +20,7 @@ namespace Game
         {
             curObjectID++;
             ID = curObjectID;
+            GameCore.RegisterGameObject(this);
             Start();
         }
 
@@ -29,6 +30,7 @@ namespace Game
             curObjectID++;
             bounds = b;
             ID = curObjectID;
+            GameCore.RegisterGameObject(this);
             Start();
         }
 

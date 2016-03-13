@@ -10,8 +10,9 @@ namespace Game
     {
         static void Main(string[] args)
         {
+            TestObject t = new TestObject();
+            t.Position = new Vector2f(5, 5);
             GameCore.Init(new SFML.Window.VideoMode(800, 600), "Test game");
-
         }
     }
 
@@ -22,6 +23,7 @@ namespace Game
         {
             CircleShape c = new CircleShape(2.5f);
             c.FillColor = Color.White;
+            drawable = c;
         }
 
         public override void Start()
@@ -32,7 +34,7 @@ namespace Game
         public override void Update()
         {
             if (Input.GetKey(Keyboard.Key.D))
-                Position += new Vector2f(1, 0);
+                Position += new Vector2f(1 * 10 * Time.deltaTime, 0);
         }
     }
 }

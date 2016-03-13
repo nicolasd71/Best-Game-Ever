@@ -5,7 +5,7 @@ using SFML.System;
 
 namespace Game
 {
-    static class AABB
+    public static class AABB
     {
         public static bool Colliding(BoundingBox a, BoundingBox b)
         {
@@ -13,7 +13,7 @@ namespace Game
         }
     }
 
-    class BoundingBox
+    public class BoundingBox
     {
         public BoundingBox(int w, int h)
         {

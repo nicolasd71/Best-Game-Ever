@@ -30,7 +30,6 @@ namespace Game
             // Main update loop, every engine-related process should be ran from here
             while (window.IsOpen)
             {
-                window.Clear(Color.Black);
                 // Dispatch SFML's window's messages
                 window.DispatchEvents();
                 // Maybe implement targetFps property in order to limit FPS (VSync-like)
@@ -67,6 +66,11 @@ namespace Game
             }
 
             // The loop has exited, end the bloody game
+        }
+
+        public static void RegisterGameObject(GameObject go)
+        {
+            gameObjectList.Add(go);
         }
     }
 }
