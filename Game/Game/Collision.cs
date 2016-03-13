@@ -22,11 +22,13 @@ namespace Game
                 goList = GameCore.GetRegisteredGameObjects();
             foreach (GameObject g in goList)
             {
+                // If not collidable
                 if (g.bounds == null)
                     continue;
                 // Prevent self-colliding, while we're at it
                 if (g.bounds == a)
                     continue;
+                // If colliding, add to the return list
                 if(Colliding(a, g.bounds))
                     ret.Add(g);
             }

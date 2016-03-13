@@ -43,8 +43,11 @@ namespace Game
                     {
                         Enemy e = (Enemy)g;
                         e.health -= bulletDamage;
+                        shouldRender = false;
+                        g.shouldRender = false;
+                        break;
                     }
-                    g.shouldRender = false;
+                    
                 }
             }
             Position += new Vector2f(0, -1 * bulletSpeed * Time.deltaTime);

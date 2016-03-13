@@ -53,7 +53,7 @@ namespace Game
                 // Run each GO's update method
                 foreach (GameObject go in gameObjectList)
                 {
-                    // Basic culling, gameobject will be skipped if it is offscreen
+                    // Basic culling, gameobject won't be rendered if it is offscreen
                     if (go.Position.X < 0 || go.Position.X > window.Size.X || go.Position.Y < 0 || go.Position.Y > window.Size.Y)
                         go.shouldRender = false;
 
