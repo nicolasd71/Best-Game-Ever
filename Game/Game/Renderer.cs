@@ -13,21 +13,11 @@ namespace Game
         static private RenderWindow window;
         static private List<RObject> toRender;
 
-        public static void Init(VideoMode v, string t)
+        public static void Init(RenderWindow w)
         {
-            window = new RenderWindow(v, t);
+            window = w;
             toRender = new List<RObject>();
-            //toRender.Add(new RObject(5));
-            //toRender.Add(new RObject(0));
-            //toRender.Add(new RObject(2));
-            //toRender.Add(new RObject(4));
-            //toRender.Add(new RObject(6));
-        }
 
-        public static void Init(uint w, uint h, string t)
-        {
-            window = new RenderWindow(new VideoMode(w, h), t);
-            toRender = new List<RObject>();
         }
 
         public static void TickRenderer()
@@ -49,7 +39,7 @@ namespace Game
     {
         public int layer;
         public Drawable drawable;
-        public RObject(int l = 0)
+        public RObject(int l)
         {
             layer = l;
         }

@@ -15,6 +15,7 @@ namespace Game
         {
             curObjectID++;
             ID = curObjectID;
+            Start();
         }
 
         public abstract void Start();
