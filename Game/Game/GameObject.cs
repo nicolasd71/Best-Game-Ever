@@ -15,11 +15,15 @@ namespace Game
 
         public bool shouldRender = true;
 
+        public GameObject()
+        {
+            GameCore.RegisterGameObject(this);
+        }
+
         public void Init()
         {
             curObjectID++;
             ID = curObjectID;
-            GameCore.RegisterGameObject(this);
             Start();
         }
         public abstract void Start();

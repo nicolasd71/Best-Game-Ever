@@ -9,7 +9,7 @@ namespace Game
 
         public static RenderWindow window;
         private static List<GameObject> gameObjectList = new List<GameObject>();
-
+        private static List<GameObject> tempGOList = new List<GameObject>();
         public static void Init(VideoMode v, string t)
         {
             // Init some other stuff
@@ -57,6 +57,7 @@ namespace Game
                     Renderer.QueueForRender(go);
                 }
 
+                // Update Game's state
                 Game.Update();
 
                 // Clear key buffer
@@ -64,6 +65,11 @@ namespace Game
 
                 // Render everything to screen
                 Renderer.TickRenderer();
+
+                // Populate game object collection with newly created game objects
+                gameObjectList.AddRange(tempGOList);
+                tempGOList.Clear();
+
                 // Call this only when update loop is finished.
                 Time.FinishUpdate();
             }
@@ -73,7 +79,7 @@ namespace Game
 
         public static void RegisterGameObject(GameObject go)
         {
-            gameObjectList.Add(go);
+            tempGOList.Add(go);
             go.Init();
         }
 

@@ -1,20 +1,29 @@
 ﻿using System;
 using SFML.System;
+using SFML.Graphics;
 
 namespace Game
 {
     class Bullet : GameObject
     {
         public float bulletDamage = 0f;
-        public float bulletSpeed = 20f;
+        public uint bulletSpeed = 175;
         public bool isPlayerOwned = false;
+        public Vector2f startPos;
+
+        private bool launch;
+
         public override void Start()
         {
-            
+            CircleShape c = new CircleShape(3);
+            c.FillColor = Color.Blue;
+            drawable = c;
         }
 
         public override void Update()
         {
+            if (!launch)
+                return;
             GameObject[] colliding = AABB.Colliding(bounds);
             if (colliding.Length > 0)
             {
@@ -22,11 +31,27 @@ namespace Game
                 {
                     if (isPlayerOwned && g is Player)
                         continue;
+                    if (g is Player)
+                    {
+                        Player p = (Player)g;
+                        p.Kill();
+                    }
+                    if (g is Enemy)
+                    {
+                        Enemy e = (Enemy)g;
+                        e.health -= bulletDamage;
+                    }
                     g.shouldRender = false;
                     Console.WriteLine("Hit an ennemy");
                 }
             }
-            Position += new Vector2f(0, 1 * bulletSpeed * Time.deltaTime);
+            Position += new Vector2f(0, -1 * bulletSpeed * Time.deltaTime);
+        }
+
+        public void Launch()
+        {
+            Position = startPos;
+            launch = true;
         }
     }
 }

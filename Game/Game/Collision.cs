@@ -17,7 +17,7 @@ namespace Game
         public static GameObject[] Colliding(BoundingBox a)
         {
             List<GameObject> ret = new List<GameObject>();
-            if (goList.Length != GameCore.GetRegisterGameObjectsCount())
+            if (goList == null || goList.Length != GameCore.GetRegisterGameObjectsCount())
                 goList = GameCore.GetRegisteredGameObjects();
             foreach (GameObject g in goList)
             {
