@@ -53,7 +53,7 @@ namespace Game
 
         private static void Window_MouseMoved(object sender, MouseMoveEventArgs e)
         {
-            
+            mousePosition = new Vector2f(e.X, e.Y);
         }
     }
 }

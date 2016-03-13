@@ -1,21 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using Key = SFML.Window.Keyboard.Key;
 namespace Game
 {
     public static class Game
     {
-        public static List<GameObject> enemies = new List<GameObject>();
-
         public static void Start()
         {
-            for (int i = 0; i < 5; i++)
-            {
-                enemies.Add(new Enemy());
-            }
+            
         }
 
         public static void Update()
         {
-            
+            if (Input.GetKeyDown(Key.Z))
+            {
+                Console.WriteLine("Z");
+            }
         }
     }
 }
