@@ -74,6 +74,16 @@ namespace Game
         public static void RegisterGameObject(GameObject go)
         {
             gameObjectList.Add(go);
+            go.Init();
+        }
+
+        public static void UnregisterGameObject(GameObject go)
+        {
+            foreach (GameObject g in gameObjectList)
+            {
+                if (g.ID == g.ID)
+                    gameObjectList.Remove(g);
+            }
         }
     }
 }
