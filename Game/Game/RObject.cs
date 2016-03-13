@@ -3,11 +3,7 @@ namespace Game
 {
     public abstract class RObject : Transformable
     {
-        public int layer;
+        public int drawLayer = 0;
         public Drawable drawable;
-        public RObject(int l)
-        {
-            layer = l;
-        }
     }
 }

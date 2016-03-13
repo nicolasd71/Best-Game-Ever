@@ -15,13 +15,12 @@ namespace Game
         {
             window = w;
             toRender = new List<RObject>();
-
         }
 
         public static void TickRenderer()
         {
             window.Clear(Color.Black);
-            toRender = toRender.OrderBy((r) => (r.layer)).ToList();
+            toRender = toRender.OrderBy((r) => (r.drawLayer)).ToList();
 
             foreach (RObject rO in toRender)
             {
