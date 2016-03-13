@@ -7,7 +7,7 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            
+
         }
     }
 }
