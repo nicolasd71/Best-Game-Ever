@@ -1,4 +1,5 @@
-﻿using SFML.Window;
+﻿using SFML.System;
+using SFML.Window;
 using System.Collections.Generic;
 namespace Game
 {
@@ -7,10 +8,14 @@ namespace Game
         private static List<Keyboard.Key> pressedKeys = new List<Keyboard.Key>();
         private static List<Keyboard.Key> releasedKeys = new List<Keyboard.Key>();
 
+        public static Vector2f mousePosition { get; private set; }
+
         public static void Init()
         {
             GameCore.window.KeyPressed += OnKeyPressed;
             GameCore.window.KeyReleased += OnKeyReleased;
+
+            GameCore.window.MouseMoved += Window_MouseMoved;
         }
 
         public static bool GetKey(Keyboard.Key key)
@@ -44,6 +49,11 @@ namespace Game
         {
             if (!releasedKeys.Contains(e.Code))
                 releasedKeys.Add(e.Code);
+        }
+
+        private static void Window_MouseMoved(object sender, MouseMoveEventArgs e)
+        {
+            
         }
     }
 }
