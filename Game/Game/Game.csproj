@@ -58,20 +58,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bullet.cs" />
-    <Compile Include="Collision.cs" />
+    <Compile Include="Core\Collision.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="GameCore.cs" />
-    <Compile Include="GameObject.cs" />
-    <Compile Include="Input.cs" />
+    <Compile Include="Core\GameCore.cs" />
+    <Compile Include="Core\GameObject.cs" />
+    <Compile Include="Core\Input.cs" />
     <Compile Include="Mathf.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RHud.cs" />
-    <Compile Include="RObject.cs" />
-    <Compile Include="Time.cs" />
-    <Compile Include="Renderer.cs" />
+    <Compile Include="Core\RHud.cs" />
+    <Compile Include="Core\RObject.cs" />
+    <Compile Include="Core\Time.cs" />
+    <Compile Include="Core\Renderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
