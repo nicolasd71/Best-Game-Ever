@@ -11,6 +11,8 @@ namespace Game
         static private RenderWindow window;
         static private List<RObject> toRender;
 
+        static private readonly Color WINDOW_CLEAR_COLOR = Color.White;
+
         public static void Init(RenderWindow w)
         {
             window = w;
@@ -19,7 +21,7 @@ namespace Game
 
         public static void TickRenderer()
         {
-            window.Clear(Color.Black);
+            window.Clear(WINDOW_CLEAR_COLOR);
             toRender = toRender.OrderBy((r) => (r.drawLayer)).ToList();
 
             foreach (RObject rO in toRender)

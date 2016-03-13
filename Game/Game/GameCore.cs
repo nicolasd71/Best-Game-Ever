@@ -6,7 +6,6 @@ namespace Game
 {
     public static class GameCore
     {
-
         public static RenderWindow window;
         private static List<GameObject> gameObjectList = new List<GameObject>();
         private static List<GameObject> tempGOList = new List<GameObject>();
@@ -14,8 +13,9 @@ namespace Game
         {
             // Init some other stuff
             window = new RenderWindow(v, t);
+            window.SetKeyRepeatEnabled(false);
 
-            Input.Init();
+            Input.Init(window);
             Renderer.Init(window);
             Start();
         }
@@ -34,6 +34,7 @@ namespace Game
             {
                 // Dispatch SFML's window's messages
                 window.DispatchEvents();
+
                 // Maybe implement targetFps property in order to limit FPS (VSync-like)
                 // todo: targetFPS
 
@@ -73,6 +74,7 @@ namespace Game
 
                 // Call this only when update loop is finished.
                 Time.FinishUpdate();
+
                 System.Threading.Thread.Sleep(10);
             }
 

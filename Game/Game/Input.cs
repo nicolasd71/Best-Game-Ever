@@ -1,6 +1,8 @@
 ﻿using SFML.System;
 using SFML.Window;
+using SFML.Graphics;
 using System.Collections.Generic;
+
 namespace Game
 {
     public static class Input
@@ -10,12 +12,16 @@ namespace Game
 
         public static Vector2f mousePosition { get; private set; }
 
-        public static void Init()
+        private static RenderWindow window;
+        public static void Init(RenderWindow w)
         {
-            GameCore.window.KeyPressed += OnKeyPressed;
-            GameCore.window.KeyReleased += OnKeyReleased;
+            window = w;
+            window.KeyPressed += OnKeyPressed;
+            window.KeyReleased += OnKeyReleased;
 
-            GameCore.window.MouseMoved += Window_MouseMoved;
+            window.MouseMoved += OnMouseMoved;
+            window.MouseButtonPressed += OnMouseButtonPressed;
+            window.MouseButtonReleased += OnMouseButtonReleased;
         }
 
         public static bool GetKey(Keyboard.Key key)
@@ -31,6 +37,11 @@ namespace Game
         public static bool GetKeyUp(Keyboard.Key key)
         {
             return releasedKeys.Contains(key);
+        }
+
+        public static bool GetMouseButton(Mouse.Button button)
+        {
+            return Mouse.IsButtonPressed(button);
         }
 
         public static void ClearKeyBuffer()
@@ -51,9 +62,19 @@ namespace Game
                 releasedKeys.Add(e.Code);
         }
 
-        private static void Window_MouseMoved(object sender, MouseMoveEventArgs e)
+        private static void OnMouseMoved(object sender, MouseMoveEventArgs e)
         {
-            
+            // todo
+        }
+
+        private static void OnMouseButtonPressed(object sender, MouseButtonEventArgs e)
+        {
+            // todo
+        }
+
+        private static void OnMouseButtonReleased(object sender, MouseButtonEventArgs e)
+        {
+            // todo
         }
     }
 }
