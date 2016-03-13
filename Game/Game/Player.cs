@@ -53,13 +53,14 @@ namespace Game
             // Player movement
             if (Input.GetKey(Keyboard.Key.Z))
                 Position = new Vector2f(0, Mathf.Clamp(Position.Y + -1 * playerSpeed * Time.deltaTime, 0, GameCore.window.Size.Y));
-            else if (Input.GetKey(Keyboard.Key.S) && Position.Y < GameCore.window.Size.Y)
+            else if (Input.GetKey(Keyboard.Key.S))
                 Position = new Vector2f(0, Mathf.Clamp(Position.Y + 1 * playerSpeed * Time.deltaTime, 0, GameCore.window.Size.Y));
-            if (Input.GetKey(Keyboard.Key.Q) && Position.X > 1)
-                Position = new Vector2f(Mathf.Clamp(Position.Y + -1 * playerSpeed * Time.deltaTime, 0, GameCore.window.Size.X), 0);
-            else if (Input.GetKey(Keyboard.Key.D) && Position.X < GameCore.window.Size.X)
-                Position = new Vector2f(Mathf.Clamp(Position.Y + 1 * playerSpeed * Time.deltaTime, 0, GameCore.window.Size.X), 0);
-            Debug.WriteLine(Position);
+
+            if (Input.GetKey(Keyboard.Key.Q))
+                Position = new Vector2f(Mathf.Clamp(Position.X + -1 * playerSpeed * Time.deltaTime, 0, GameCore.window.Size.X), 0);
+            else if (Input.GetKey(Keyboard.Key.D))
+                Position = new Vector2f(Mathf.Clamp(Position.X + 1 * playerSpeed * Time.deltaTime, 0, GameCore.window.Size.X), 0);
+
             // Player fire
             if (Input.GetKeyDown(Keyboard.Key.Space))
                 Shoot();
@@ -76,7 +77,7 @@ namespace Game
 
         public void Kill()
         {
-            // todo
+            // todo: restart
         }
     }
 }
