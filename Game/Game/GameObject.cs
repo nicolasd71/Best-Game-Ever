@@ -8,11 +8,13 @@ namespace Game
 {
     abstract class GameObject : RObject
     {
-        public Guid ID { get; private set; }
+        private static int curObjectID = 0;
+        public int ID { get; private set; }
         public GameObject(int l = 0)
             : base(l)
         {
-            ID = Guid.NewGuid();
+            curObjectID++;
+            ID = curObjectID;
         }
 
         public abstract void Start();
