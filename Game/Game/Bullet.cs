@@ -32,14 +32,12 @@ namespace Game
             {
                 foreach (GameObject g in colliding)
                 {
-                    if (isPlayerOwned && g is Player)
-                        continue;
-                    if (g is Player)
+                    if (g is Player && !isPlayerOwned)
                     {
                         Player p = (Player)g;
                         p.Kill();
                     }
-                    if (g is Enemy)
+                    if (g is Enemy && isPlayerOwned)
                     {
                         Enemy e = (Enemy)g;
                         e.health -= bulletDamage;
