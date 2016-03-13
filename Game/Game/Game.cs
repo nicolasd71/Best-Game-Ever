@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SFML.System;
 namespace Game
 {
     public static class Game
@@ -10,7 +11,9 @@ namespace Game
             p = new Player();
             for (int i = 0; i < 5; i++)
             {
-                enemies.Add(new Enemy());
+                Enemy e = new Enemy();
+                e.Position = new Vector2f(200, 200 + (i * 50));
+                enemies.Add(e);
             }
         }
 

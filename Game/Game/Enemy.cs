@@ -1,4 +1,6 @@
 ﻿using SFML.Graphics;
+using SFML.System;
+using System;
 namespace Game
 {
     public class Enemy : GameObject
@@ -7,7 +9,7 @@ namespace Game
 
         public override void Start()
         {
-            RectangleShape c = new RectangleShape(new SFML.System.Vector2f(10, 10));
+            RectangleShape c = new RectangleShape(new Vector2f(10, 10));
             c.FillColor = Color.Magenta;
             drawable = c;
 
@@ -18,7 +20,8 @@ namespace Game
 
         public override void Update()
         {
-            
+            Vector2f offset = new Vector2f((float)Math.Sin(Time.time), (float)Math.Cos(Time.time * 2));
+            Position += offset;
         }
     }
 }
